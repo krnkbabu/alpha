@@ -1,0 +1,18 @@
+{%extends 'myapp/myapp_base.html'%}
+
+{%block body_block%}
+
+<h1>Welcome to the School Detail Page</h1>
+<h2>School Details:</h2>
+<p>Name :{{school.name}}</p>
+<p>Principal :{{school.principal}}</p>
+<p>Location :{{school.location}}</p>
+
+<h3>Students:</h3>
+
+<ol>
+{%for i in school.students.all%}
+	<li>{{i.name}} who is {{i.age}} years old.</li>
+{%endfor%}
+</ol>
+{% endblock %}
