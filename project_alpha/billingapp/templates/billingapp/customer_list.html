@@ -1,0 +1,36 @@
+{% extends 'billingapp/billingapp_base.html' %}
+
+{% load static %}
+
+{% block body_block %}
+
+<div class="row">
+	<div class="col">
+		<h2>Customers</h2>
+	</div>
+	<div class="col">
+		<a href="{% url 'billingapp:entry_customer' %}" id="add_customer_btn"><button type="button" class="btn btn-primary">Add New</button></a>
+	</div>
+</div>
+
+<table class="table table-bordered">
+	<thead>
+		<th>S.No</th>			
+		<th>Name</th>
+		<th colspan="2">Options</th>
+	</thead>
+	<tbody class="two-col-form">
+		{% for x in customer_list %}
+		<tr>
+			<td>{{forloop.counter}}</td>			
+			<td><a href= "{{ x.get_absolute_url }}" >{{x.customer_name}}</a></td>
+			<td><a href="{%url 'billingapp:update_customer' pk=x.pk %}"><button type="button" class="btn btn-dark">Edit</button></a></td>
+			{# <td><a href="{%url 'billingapp:delete_customer' pk=x.pk %}"><button type="button" class="btn btn-danger">Delete</button></a></td> #}
+
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'billingapp/billingapp_base.html' %}
+
+{% block body_block %}
+
+	<h1> List of All Products</h1>
+
+	<table>
+		<thead>
+			<th>S.No</th>
+			<th>Code</th>
+			<th>Name</th>
+			<th>Options</th>
+		</thead>
+
+		
+			{% for x in product_list %}
+			
+			<tr>	
+				<td> {{ forloop.counter }}</td>	
+				<td><a href= "{{ x.get_absolute_url }}" >
+			{{x.product_code}}</a></td>
+				<td>{{x.product_name}}</td>
+				<td><a href="{% url 'billingapp:update_product' pk=x.pk %}">Edit</a></td>					
+			</tr>
+			
+			{% endfor %}
+
+	</table>
+
+	<br>
+
+	<a href="{% url 'billingapp:entry_product'%}">Click here to Add Products</a>
+
+	<p>
+		<ul>
+			
+			<li><a href ="{% url 'billingapp:list_inventory' %}">Inventory List</a></li>
+		</ul>
+		
+	</p>
+
+{% endblock %}

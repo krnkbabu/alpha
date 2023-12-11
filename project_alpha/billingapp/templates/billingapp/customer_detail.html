@@ -1,0 +1,25 @@
+{% extends 'billingapp/billingapp_base.html' %}
+
+{% block body_block %}
+
+	<h3>Customer Detail Page</h3>
+	<h1> <b>		{{customer}}		</b></h1>
+
+	<h5><a href="{%url 'billingapp:update_customer' pk=customer.pk %}">Edit</a></h5>
+
+	
+<div>
+	<h3><u> Customer Invoices :</u></h3>
+
+	<ul>
+		{% for x in productz %}
+		<li> {{x.product_code}}</li>
+		{% endfor %}
+	</ul>
+</div>
+
+	<p>
+		<a href="{% url 'billingapp:list_customer'%}">Click here to Go to Customer List</a>
+	</p>
+
+{% endblock %}

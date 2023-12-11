@@ -1,0 +1,36 @@
+{% extends 'billingapp/billingapp_base.html' %}
+
+{% block body_block %}
+
+	<h1> List of All Inventories</h1>
+
+	<table>
+		<thead>
+			<th>S.No</th>
+			<th>Code</th>
+			<th>Availble</th>
+			<th>Allocated</th>
+		</thead>
+
+		
+			{% for x in inventory_list %}
+			
+			<tr>	
+				<td> {{ forloop.counter }}</td>	
+				<td>{{x.product}}</td>
+				<td>{{x.inv_available}}</td>
+				<td>{{ x.inv_allocated }}</td>
+				
+			</tr>
+			
+			{% endfor %}
+
+	</table>
+
+	<br>
+	
+	<p>
+		<a href="{% url 'billingapp:entry_product'%}">Click here to Add Products</a>
+	</p>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'billingapp/billingapp_base.html' %}
+
+{% block body_block %}
+
+	<h3>Vendor Detail Page</h3>
+	<h1> <b>		{{vendor}}		</b></h1>
+
+	<h5><a href="{%url 'billingapp:update_vendor' pk=vendor.pk %}">Edit</a></h5>
+
+	
+<div>
+	<h3><u> List of Products Supplied by the Vendor :</u></h3>
+
+	<ul>
+		{% for x in productz %}
+		<li> {{x.product_code}}</li>
+		{% endfor %}
+	</ul>
+</div>
+
+	<p>
+		<a href="{% url 'billingapp:list_vendor'%}">Click here to Go to Vendor List</a>
+	</p>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'billingapp/billingapp_base.html' %}
+
+{% block body_block %}
+
+	<h1> Fill Out The Vendor Details</h1>
+	
+	<form method='POST'>
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="submit" value='Submit'>
+	</form>
+
+{% endblock %}
